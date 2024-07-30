@@ -28,9 +28,9 @@ This project is aimed at beginners who are interested in learning automation tes
 
 To get started with this project, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/JagatSahoo07/Automation_testing_for_begineers.git`
-2. Navigate to the project directory: `cd Automation_testing_for_begineers`
-3. Install the required dependencies: `npm install`
+1. Clone the repository: ``` git clone https://github.com/JagatSahoo07/Automation_testing_for_begineers.git ```
+2. Navigate to the project directory: ``` cd Automation_testing_for_begineers ```
+3. Install the required dependencies: ``` npm install ```
 
 ## Usage
 
