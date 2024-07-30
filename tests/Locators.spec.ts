@@ -2,10 +2,8 @@
 // 1) Locate by Role
 // 2) Locate by Placeholder
 // 3) Locate by Text
-// 5) Locate by Alt text
-// 6) Locate by Test id
-// 7) Locate by Css or xpath
-// 8) Locate by Title
+// 4) Locate by Title
+// 5) Locate by Css or xpath
 
 //There are two methohds to locate and do actions on them.
 // await page.locator("locator").click();
@@ -15,15 +13,22 @@ import { test, expect } from "@playwright/test";
 
 test("Locating Web Elements", async ({ page }) => {
   //visit the web application
-  await page.goto("https://www.saucedemo.com/");
+  await page.goto("https://thinking-tester-contact-list.herokuapp.com/");
 
   // 1) Locate by role
-  // click on login button
-  await page.getByRole("button", { name: "Login" }).click();
+  await expect(page.getByRole("button", { name: "Sign up" })).toBeVisible();
 
   // 2) Locate by Placeholder
-  await page.getByPlaceholder("Username").fill("standard_user");
+  await page.getByPlaceholder("Email").fill("standard_user");
 
   //3) Locate by Text
-  await expect(page.getByText("Swag Labs")).toBeVisible();
+  await expect(
+    page.getByText("Not yet a user? Click here to sign up!")
+  ).toBeVisible();
+
+  //4) Locate by Title
+  await page.getByTitle("Contact List App");
+
+  //5) locate by CSS/XPath
+  await page.locator("//input[@id='password']").fill("1234");
 });
