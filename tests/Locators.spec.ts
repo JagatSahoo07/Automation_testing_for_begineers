@@ -29,6 +29,11 @@ test("Locating Web Elements", async ({ page }) => {
   //4) Locate by Title
   await page.getByTitle("Contact List App");
 
-  //5) locate by CSS/XPath
+  //5) Locate by XPath
   await page.locator("//input[@id='password']").fill("1234");
+  // await page.fill("//input[@id='password']", "1234");
+
+  //6) Locate by CSS
+  await page.locator("#submit").click();
+  //await page.fill("#submit")
 });
