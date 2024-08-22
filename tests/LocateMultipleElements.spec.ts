@@ -2,19 +2,19 @@ import { test, expect } from "@playwright/test";
 
 /*In Playwright, these terms relate to how text is handled or matched within the DOM (Document Object Model). Here's a brief explanation of each:
 
-1. **`textContent`**:
+1. **`textContent()`**:
    - This is a DOM property that returns the text content of a node and all its descendants. It includes all the text, even if it's hidden (e.g., `display: none`). It doesn't consider the visual appearance of the text.
    - In Playwright, you can use `elementHandle.textContent()` to retrieve the `textContent` of an element.
 
-2. **`innerText`**:
+2. **`innerText()`**:
    - This is a DOM property that returns the visible text content of an element, as rendered by the browser. It excludes hidden text and considers the layout, such as the impact of CSS styles like `display` or `visibility`.
    - Playwright can retrieve this using `elementHandle.innerText()`.
 
-3. **`toContainText`**:
+3. **`toContainText()`**:
    - This is a Playwright-specific matcher used in assertions to check if an element contains a specific text or substring within its visible text.
    - Example: `await expect(page.locator('selector')).toContainText('expected text')`.
 
-4. **`allTextContents`**:
+4. **`allTextContents()`**:
    - This is a Playwright method that retrieves an array of all the text contents of the elements matching a selector. It’s useful when you want to get the text content of multiple elements at once.
    - Example: `const texts = await page.locator('selector').allTextContents();`
 
