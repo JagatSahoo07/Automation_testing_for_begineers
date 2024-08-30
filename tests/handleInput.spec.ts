@@ -13,11 +13,4 @@ test("Handle Input Box", async ({ page }) => {
   //Fill the Input box
   await page.locator("//input[@id='firstName']").fill("Jagat"); //First way to fill Input
   await page.fill("//input[@id='lastName']", "Sahoo"); //Second way to fill Input
-
-  //Lets check some conditions for Radio button
-  await expect(page.locator("//label[text()='Male']")).toBeEnabled();
-
-  //Check Radio button
-  await page.locator("//label[text()='Male']").click();
-  // await page.waitForTimeout(4000);
 });
