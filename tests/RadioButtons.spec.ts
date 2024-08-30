@@ -9,9 +9,9 @@ test("Radio Buttons", async ({ page }) => {
 
   //Select Male radion button--------------------------------------
   await page.locator("//label[text()='Male']").click();
-  //check if it is checked or not
+  //Check if it is checked or not
   await expect(page.locator("//label[text()='Male']")).toBeChecked();
-  // another approch to check
+  //Another approch to check
   expect
     .soft(await page.locator("//label[text()='Male']").isChecked())
     .toBeTruthy();
