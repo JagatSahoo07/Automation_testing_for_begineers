@@ -23,7 +23,7 @@ test("Single Check-Box", async ({ page }) => {
   await page.waitForTimeout(5000);
 });
 
-test.only("Multiple Check Box", async ({ page }) => {
+test("Multiple Check Box", async ({ page }) => {
   await page.goto("https://demoqa.com/");
   await page.getByText("Forms").click();
   await page.getByText("Practice Form").click();
