@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-test("Check-Box", async ({ page }) => {
+test("Single Check-Box", async ({ page }) => {
   await page.goto("https://the-internet.herokuapp.com/");
   await page.getByText("Checkboxes").click();
 
@@ -21,4 +21,22 @@ test("Check-Box", async ({ page }) => {
   expect.soft(await page.locator("//input[2]").isChecked()).toBeFalsy();
 
   await page.waitForTimeout(5000);
+});
+
+test.only("Multiple Check Box", async ({ page }) => {
+  await page.goto("https://demoqa.com/");
+  await page.getByText("Forms").click();
+  await page.getByText("Practice Form").click();
+
+  const checkboxLocators = [
+    "//label[text()='Sports']",
+    "//label[text()='Reading']",
+  ];
+
+  for (const locatorName of checkboxLocators) {
+    await page.locator(locatorName).check();
+  }
+
+  await expect(page.locator("//label[text()='Sports']")).toBeChecked();
+  await expect(page.locator("//label[text()='Reading']")).toBeChecked();
 });
