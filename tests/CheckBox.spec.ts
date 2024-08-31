@@ -28,15 +28,36 @@ test("Multiple Check Box", async ({ page }) => {
   await page.getByText("Forms").click();
   await page.getByText("Practice Form").click();
 
+  //storing all the locator address
   const checkboxLocators = [
     "//label[text()='Sports']",
     "//label[text()='Reading']",
   ];
 
+  //see step by step  ----comment this line if not required
+  await page.pause();
+
+  //checking the checkbox
   for (const locatorName of checkboxLocators) {
     await page.locator(locatorName).check();
   }
 
+  //check is checkboxs are checked or not
   await expect(page.locator("//label[text()='Sports']")).toBeChecked();
   await expect(page.locator("//label[text()='Reading']")).toBeChecked();
+
+  //uncheck checkbox if it is already checked
+  for (const locatorName of checkboxLocators) {
+    if (await page.locator(locatorName).isChecked()) {
+      await page.locator(locatorName).uncheck();
+    }
+  }
+
+  //check is checkboxs are unchecked or not
+  expect
+    .soft(await page.locator("//label[text()='Sports']").isChecked())
+    .toBeFalsy();
+  expect
+    .soft(await page.locator("//label[text()='Reading']").isChecked())
+    .toBeFalsy();
 });
