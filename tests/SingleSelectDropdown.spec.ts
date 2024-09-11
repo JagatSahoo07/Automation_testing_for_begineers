@@ -65,8 +65,11 @@ test("Dropdown Single-select", async ({ page }) => {
 
 //Select hidden option from dropdown
 //There is one way to make our option visible in inspect.
-// inspect on component >> select event listeners >> blur >> delete all the option under blur
+//1) inspect on component >> select event listeners >> blur >> delete all the option under blur
 // now the option will be visible on the inspect
+
+// 2)Inspect and go to sources >> create new js snippet >> write "debugger".
+// goto the step where you want the element of particular component, then run the script. Now screen will freeze, so you can fine that component in elements.
 
 test("Dropdown Hidden option", async ({ page }) => {
   await page.goto("https://demoqa.com/");
@@ -80,4 +83,27 @@ test("Dropdown Hidden option", async ({ page }) => {
   //2nd example
   await page.getByText("Select Title").click();
   await page.locator("#react-select-3-option-0-1").click();
+});
+
+test.only("Auto suggestion dropdown", async ({ page }) => {
+  await page.goto("https://www.redbus.in/");
+
+  // await page.locator("#src").fill("Bhubaneswar"); // first way to fill
+  await page.locator("#src").click();
+  await page.keyboard.type("Bhubaneswar", { delay: 100 });
+  await page.waitForSelector(
+    "//li[contains(@class, 'sc-iwsKbI jTMXri')]/div/text[1]"
+  );
+
+  const fromCityOptions = await page.$$(
+    "//li[contains(@class, 'sc-iwsKbI jTMXri')]/div/text[1]"
+  );
+
+  for (let option of fromCityOptions) {
+    const value = await option.textContent();
+    if (value?.includes("Rasulgarh")) {
+      await option.click();
+      break;
+    }
+  }
 });
