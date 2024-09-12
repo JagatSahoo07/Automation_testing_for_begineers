@@ -38,7 +38,7 @@ To run the tests, use the following command:
 
 <mark>npx playwright test filename.spec.ts</mark>
 
-This will execute all the test files in the <mark>tests/</mark> directory.
+This will execute a particular file in the <mark>tests/</mark> directory.
 
 ## Examples
 
