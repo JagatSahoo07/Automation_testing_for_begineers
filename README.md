@@ -29,18 +29,16 @@ This project is aimed at beginners who are interested in learning automation tes
 To get started with this project, follow these steps:
 
 1. Clone the repository: <mark> git clone https://github.com/JagatSahoo07/Automation_testing_for_begineers.git </mark>
-2. Navigate to the project directory: `cd Automation_testing_for_begineers`
-3. Install the required dependencies: `npm install`
+2. Navigate to the project directory: <mark> cd Automation_testing_for_begineers </mark>
+3. Install the required dependencies: <mark>npm install</mark>
 
 ## Usage
 
 To run the tests, use the following command:
 
-```
-npx playwright test filename.spec.ts
-```
+<mark>npx playwright test filename.spec.ts</mark>
 
-This will execute all the test files in the `tests/` directory.
+This will execute all the test files in the <mark>tests/</mark> directory.
 
 ## Examples
 
