@@ -6,7 +6,7 @@ test("Search and sort", async ({ page }) => {
   // search "lg soundbar"
   await page.locator("input#twotabsearchtextbox").fill("Lg soundbar");
   await page.press("input#twotabsearchtextbox", "Enter");
-  // read product names and price
+  // read product names and price using javascript
   await page.waitForSelector(
     "//h2[@class='a-size-mini a-spacing-none a-color-base s-line-clamp-2']"
   );
@@ -22,9 +22,9 @@ test("Search and sort", async ({ page }) => {
     });
   });
 
-  //sort product
+  // sort the products
   products.sort((a, b) => a.price - b.price);
-  // print product and price
+  // print products and their price in the concole log
   products.forEach((product) => {
     console.log(`${product.price} ${product.name}`);
   });
