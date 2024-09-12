@@ -37,10 +37,10 @@ To get started with this project, follow these steps:
 To run the tests, use the following command:
 
 ```
-<mark>npx playwright test filename.spec.ts</mark>
+npx playwright test filename.spec.ts
 ```
 
-This will execute all the test files in the `<mark>tests/</mark>` directory.
+This will execute all the test files in the `tests/` directory.
 
 ## Examples
 
