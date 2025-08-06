@@ -25,10 +25,14 @@ test("Dropdown Single-select", async ({ page }) => {
   //sixth approach ----- If there is no select attribute
   const SelectOption = await page.$$("//select[@id='country']/option");
 
+  // Add wait for element to be visible
+  await page.waitForSelector("//select[@id='country']");
+  // Iterate through options and select the one that contains "France"
+  // This is useful when the options are not directly selectable via selectOption
   for (const myOption of SelectOption) {
     let value = await myOption.textContent();
     if (value?.includes("France")) {
-      await page.selectOption("#country", value);
+      await page.selectOption("//select[@id='country']", "France");
       break;
     }
   }
@@ -89,7 +93,7 @@ test("Auto suggestion dropdown", async ({ page }) => {
   await page.goto("https://www.redbus.in/");
 
   // await page.locator("#src").fill("Bhubaneswar"); // first way to fill
-  await page.locator("#src").click();
+  await page.locator(".placeHolderContainer___8dac15").click();
   await page.keyboard.type("Bhubaneswar", { delay: 100 });
   await page.waitForSelector(
     "//li[contains(@class, 'sc-iwsKbI jTMXri')]/div/text[1]"
