@@ -85,7 +85,7 @@ test("Dropdown Hidden option", async ({ page }) => {
   await page.locator("#react-select-3-option-0-1").click();
 });
 
-test.only("Auto suggestion dropdown", async ({ page }) => {
+test("Auto suggestion dropdown", async ({ page }) => {
   await page.goto("https://www.redbus.in/");
 
   // await page.locator("#src").fill("Bhubaneswar"); // first way to fill
